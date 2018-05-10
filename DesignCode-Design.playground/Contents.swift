@@ -35,6 +35,8 @@ class MyViewController: UIViewController {
         coverImageView.frame = CGRect(x: 0, y: 0, width: 300, height: 250)
         coverImageView.contentMode = .scaleAspectFill
         coverImageView.image = #imageLiteral(resourceName: "swift.jpg")
+        coverImageView.clipsToBounds = true
+        coverImageView.layer.cornerRadius = 14
         cardView.addSubview(coverImageView)
         
         self.view = view
