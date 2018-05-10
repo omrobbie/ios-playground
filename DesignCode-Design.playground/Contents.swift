@@ -23,14 +23,20 @@ class MyViewController: UIViewController {
         view.addSubview(label2)
         
         let cardView = UIView()
-        cardView.frame = CGRect(x: 40, y: 270, width: 300, height: 250)
+        cardView.frame = CGRect(x: 40, y: 300, width: 300, height: 250)
         cardView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         cardView.layer.cornerRadius = 14
         cardView.layer.shadowOpacity = 0.25
         cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
         cardView.layer.shadowRadius = 10
         view.addSubview(cardView)
-
+        
+        let coverImageView = UIImageView()
+        coverImageView.frame = CGRect(x: 0, y: 0, width: 300, height: 250)
+        coverImageView.contentMode = .scaleAspectFill
+        coverImageView.image = UIImage(named: "swift.jpg")
+        cardView.addSubview(coverImageView)
+        
         self.view = view
     }
 }
