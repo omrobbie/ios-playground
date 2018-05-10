@@ -52,6 +52,7 @@ class MyViewController : UIViewController {
             descriptionLabel.frame = CGRect(x: 20, y: 448, width: 335, height: 132)
             descriptionLabel.text = "Three years ago, Apple completely revamped their design language for the modern users. It is now much simpler, allowing designers to focus on animation and function rather than intricate visual details."
             descriptionLabel.textColor = .black
+            descriptionLabel.numberOfLines = 10
             cardView.addSubview(descriptionLabel)
         }
         animator.startAnimation()
