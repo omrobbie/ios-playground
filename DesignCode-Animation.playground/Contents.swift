@@ -37,6 +37,12 @@ class MyViewController : UIViewController {
         let backgroundImageView = UIImageView()
         backgroundImageView.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
         backgroundImageView.image = #imageLiteral(resourceName: "Chapters Screen@2x.png")
+        
+        let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
+            cardView.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
+            cardView.layer.cornerRadius = 0
+        }
+        animator.startAnimation()
 
         view.addSubview(backgroundImageView)
         view.addSubview(cardView)
