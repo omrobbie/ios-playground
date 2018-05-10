@@ -20,6 +20,15 @@ class MyViewController: UIViewController {
         label2.text = "Learn Swift 4"
         label2.textColor = .blue
         view.addSubview(label2)
+        
+        let cardView = UIView()
+        cardView.frame = CGRect(x: 40, y: 255, width: 300, height: 250)
+        cardView.backgroundColor = .blue
+        cardView.layer.cornerRadius = 14
+        cardView.layer.shadowOpacity = 0.25
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        cardView.layer.shadowRadius = 10
+        view.addSubview(cardView)
 
         self.view = view
     }
