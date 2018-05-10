@@ -23,7 +23,7 @@ class MyViewController: UIViewController {
         
         let cardView = UIView()
         cardView.frame = CGRect(x: 40, y: 255, width: 300, height: 250)
-        cardView.backgroundColor = .blue
+        cardView.backgroundColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
         cardView.layer.cornerRadius = 14
         cardView.layer.shadowOpacity = 0.25
         cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
