@@ -44,6 +44,9 @@ class MyViewController : UIViewController {
             
             coverImageView.frame = CGRect(x: 0, y: 0, width: 375, height: 420)
             coverImageView.layer.cornerRadius = 0
+            
+            titleLabel.frame = CGRect(x: 20, y: 20, width: 374, height: 38)
+            captionLabel.frame = CGRect(x: 20, y: 370, width: 272, height: 40)
         }
         animator.startAnimation()
 
