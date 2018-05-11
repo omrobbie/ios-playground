@@ -55,6 +55,13 @@ class MyViewController : UIViewController {
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         cardView.addSubview(closeButton)
 
+        view.addSubview(backgroundImageView)
+        view.addSubview(cardView)
+        cardView.addSubview(coverImageView)
+        cardView.addSubview(titleLabel)
+        cardView.addSubview(captionLabel)
+        self.view = view
+        
         let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
             cardView.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
             cardView.layer.cornerRadius = 0
@@ -69,13 +76,6 @@ class MyViewController : UIViewController {
             closeButton.alpha = 1
         }
         animator.startAnimation(afterDelay: 1)
-        
-        view.addSubview(backgroundImageView)
-        view.addSubview(cardView)
-        cardView.addSubview(coverImageView)
-        cardView.addSubview(titleLabel)
-        cardView.addSubview(captionLabel)
-        self.view = view
     }
 
     @objc func closeButtonTapped() {
