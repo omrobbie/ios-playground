@@ -53,7 +53,11 @@ class MyViewController : UIViewController {
         closeButton.alpha = 0
         closeButton.setImage(#imageLiteral(resourceName: "Action-Close@2x.png"), for: .normal)
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cardViewTapped))
+        cardView.addGestureRecognizer(tap)
+        cardView.isUserInteractionEnabled = true
+        
         view.addSubview(backgroundImageView)
         view.addSubview(cardView)
         cardView.addSubview(coverImageView)
@@ -62,7 +66,9 @@ class MyViewController : UIViewController {
         cardView.addSubview(descriptionLabel)
         cardView.addSubview(closeButton)
         self.view = view
-        
+    }
+    
+    @objc func cardViewTapped() {
         let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
             self.cardView.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
             self.cardView.layer.cornerRadius = 0
