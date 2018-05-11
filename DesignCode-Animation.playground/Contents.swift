@@ -39,8 +39,22 @@ class MyViewController : UIViewController {
         backgroundImageView.image = #imageLiteral(resourceName: "Chapters Screen@2x.png")
         
         let descriptionLabel = UILabel()
+        descriptionLabel.frame = CGRect(x: 20, y: 448, width: 335, height: 132)
+        descriptionLabel.text = "Three years ago, Apple completely revamped their design language for the modern users. It is now much simpler, allowing designers to focus on animation and function rather than intricate visual details."
+        descriptionLabel.textColor = .black
+        descriptionLabel.numberOfLines = 10
         descriptionLabel.alpha = 0
+        cardView.addSubview(descriptionLabel)
         
+        let closeButton = UIButton()
+        closeButton.frame = CGRect(x: 328, y: 20, width: 28, height: 28)
+        closeButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
+        closeButton.layer.cornerRadius = 14
+        closeButton.alpha = 0
+        closeButton.setImage(#imageLiteral(resourceName: "Action-Close@2x.png"), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        cardView.addSubview(closeButton)
+
         let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
             cardView.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
             cardView.layer.cornerRadius = 0
@@ -51,15 +65,11 @@ class MyViewController : UIViewController {
             titleLabel.frame = CGRect(x: 20, y: 20, width: 374, height: 38)
             captionLabel.frame = CGRect(x: 20, y: 370, width: 272, height: 40)
             
-            descriptionLabel.frame = CGRect(x: 20, y: 448, width: 335, height: 132)
-            descriptionLabel.text = "Three years ago, Apple completely revamped their design language for the modern users. It is now much simpler, allowing designers to focus on animation and function rather than intricate visual details."
-            descriptionLabel.textColor = .black
-            descriptionLabel.numberOfLines = 10
             descriptionLabel.alpha = 1
-            cardView.addSubview(descriptionLabel)
+            closeButton.alpha = 1
         }
         animator.startAnimation(afterDelay: 1)
-
+        
         view.addSubview(backgroundImageView)
         view.addSubview(cardView)
         cardView.addSubview(coverImageView)
@@ -67,6 +77,11 @@ class MyViewController : UIViewController {
         cardView.addSubview(captionLabel)
         self.view = view
     }
+
+    @objc func closeButtonTapped() {
+        // do something
+    }
+    
 }
 // Present the view controller in the Live View window
 PlaygroundPage.current.liveView = MyViewController()
