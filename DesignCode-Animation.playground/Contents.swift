@@ -38,6 +38,9 @@ class MyViewController : UIViewController {
         backgroundImageView.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
         backgroundImageView.image = #imageLiteral(resourceName: "Chapters Screen@2x.png")
         
+        let descriptionLabel = UILabel()
+        descriptionLabel.alpha = 0
+        
         let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7) {
             cardView.frame = CGRect(x: 0, y: 0, width: 375, height: 667)
             cardView.layer.cornerRadius = 0
@@ -48,14 +51,14 @@ class MyViewController : UIViewController {
             titleLabel.frame = CGRect(x: 20, y: 20, width: 374, height: 38)
             captionLabel.frame = CGRect(x: 20, y: 370, width: 272, height: 40)
             
-            let descriptionLabel = UILabel()
             descriptionLabel.frame = CGRect(x: 20, y: 448, width: 335, height: 132)
             descriptionLabel.text = "Three years ago, Apple completely revamped their design language for the modern users. It is now much simpler, allowing designers to focus on animation and function rather than intricate visual details."
             descriptionLabel.textColor = .black
             descriptionLabel.numberOfLines = 10
+            descriptionLabel.alpha = 1
             cardView.addSubview(descriptionLabel)
         }
-        animator.startAnimation()
+        animator.startAnimation(afterDelay: 1)
 
         view.addSubview(backgroundImageView)
         view.addSubview(cardView)
